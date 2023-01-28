@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/wpcodevo/golang-mongodb/pb";
+
+import "user.proto";
+
+message SignInUserInput {
+  string email = 1;
+  string password = 2;
+}
+
+message SigninUserResponse { User user = 1; }
+

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+import "rpc_signup_user.proto";
+import "rpc_signin_user.proto";
+import "rpc_forgot_password.proto";
+import "rpc_reset_password.proto";
+import "user.proto";
+
+option go_package = "github.com/wpcodevo/golang-mongodb/pb";
+
+service AuthService {
+  rpc SignUpUser(SignUpUserInput) returns (GenericResponse) {}
+  rpc SignInUser(SignInUserInput) returns (GenericSignInResponse) {}
+  rpc VerifyEmail(VerifyEmailRequest) returns (GenericResponse) {}
+  rpc ForgotPassword(ForgotPasswordInput) returns (GenericResponse) {}
+  rpc ResetPassword(ResetPasswordInput) returns (GenericResponse) {}
+}
+
+message VerifyEmailRequest { string verificationCode = 1; }
